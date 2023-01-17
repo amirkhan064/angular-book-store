@@ -1,0 +1,89 @@
+<section class="book-info">
+  <h2 class="fs-48">Author's books</h2>
+  <div class="filters">
+    <select (change)="getSortedOption($event)">
+      <option value="select">select sort</option>
+      <option value="title">Sort by title</option>
+      <option value="date">sort by date</option>
+    </select>
+    <button mat-stroked-button *ngIf="!showEdit" (click)="showHideForm()">
+      <mat-icon
+        class="icon"
+        aria-hidden="false"
+        aria-label="Delete Book"
+        fontIcon="add"
+      ></mat-icon
+      >Add books
+    </button>
+
+    <button mat-stroked-button *ngIf="showEdit" (click)="showHideForm()">
+      <mat-icon
+        class="icon"
+        aria-hidden="false"
+        aria-label="Delete Book"
+        fontIcon="close"
+      ></mat-icon
+      >close
+    </button>
+  </div>
+  <div class="add-edit-books-container" *ngIf="showEdit">
+    <form class="form-horizontal" #authorForm="ngForm">
+      <input
+        id="title"
+        name="title"
+        type="text"
+        required
+        [(ngModel)]="book.title"
+        placeholder="Book title"
+      />
+      <input
+        id="year"
+        name="year"
+        type="text"
+        required
+        [(ngModel)]="book.PublishDate"
+        placeholder="Book year"
+      />
+      <button
+        mat-flat-button
+        [disabled]="!authorForm.valid"
+        (click)="submitBook()"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+  <ul>
+    <li *ngFor="let book of authorInfo.books; let i = index">
+      <div class="image">
+        <img src="{{ book.imageUrl }}" alt="" />
+      </div>
+      <div class="book-desc">
+        <div class="icon-container">
+          <mat-icon
+            class="icon"
+            aria-hidden="false"
+            aria-label="Delete Book"
+            fontIcon="edit"
+            title="Edit book"
+            (click)="editBook(i)"
+          ></mat-icon>
+          <mat-icon
+            class="icon"
+            aria-hidden="false"
+            aria-label="Delete Book"
+            fontIcon="delete"
+            title="Delete book"
+            (click)="deleteBook(i)"
+          ></mat-icon>
+        </div>
+        <h3 class="pt_4">
+          <a href="{{ book.purchaseLink }}" target="_blank">{{ book.title }}</a>
+        </h3>
+        <div class="pt_4 action">
+          {{ book.PublishDate }}
+        </div>
+      </div>
+    </li>
+  </ul>
+</section>

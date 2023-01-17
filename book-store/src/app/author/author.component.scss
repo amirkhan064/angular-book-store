@@ -1,0 +1,13 @@
+.author-info {
+    padding: 1rem 4rem;
+    background: #f4f3ec;
+}
+
+
+/* Media Query for Mobile Devices */
+@media (max-width: 480px) {
+
+    .author-info {
+        padding: 1rem 2rem;
+    }
+}

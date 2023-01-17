@@ -1,0 +1,39 @@
+body {
+    background-color: #eee;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    max-width: 1040px;
+    font-size: 14px;
+    margin: 0 auto;
+    color: #333;
+}
+
+ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+    margin: 0px;
+    padding: 0px;
+}
+
+.pt_4 {
+    padding-top: 4px;
+}
+
+.pb_4 {
+    padding-bottom: 4px;
+}
+
+a {
+    color: #333;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #e4573d;
+}
